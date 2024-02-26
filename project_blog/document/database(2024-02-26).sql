@@ -1,0 +1,34 @@
+CREATE DATABASE blogDB;
+USE blogDB;
+DROP TABLE tbl_user;
+CREATE TABLE tbl_notice(
+n_seq	BIGINT	AUTO_INCREMENT	PRIMARY KEY,
+n_uid	VARCHAR(25)	NOT NULL	,
+n_title	VARCHAR(20)	NOT NULL	
+);
+
+DROP TABLE tbl_post;
+CREATE TABLE tbl_post(
+p_seq	BIGINT	AUTO_INCREMENT	PRIMARY KEY,
+p_uid	VARCHAR(25)	NOT NULL	,
+p_nseq	BIGINT		,
+p_date	VARCHAR(10)	NOT NULL	,
+p_time	VARCHAR(10)	NOT NULL	,
+p_title	VARCHAR(30)	NOT NULL	,
+p_image	VARCHAR(255)		
+
+);
+
+CREATE TABLE tbl_user(
+u_id	VARCHAR(20)		PRIMARY KEY,
+u_pw	VARCHAR(255)	NOT NULL	,
+u_nick	VARCHAR(12)	NOT NULL	
+
+);
+
+
+-- 외래키 설정
+ALTER TABLE tbl_post
+ADD CONSTRAINT FK_BSEQ
+FOREIGN KEY (p_nseq)
+REFERENCES tbl_notice(n_seq);
