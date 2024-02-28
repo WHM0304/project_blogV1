@@ -2,4 +2,11 @@ extends ../layout
 
 
 block content
-    h1 게시판추가
+    link(rel="stylesheet", href="/css/notice/insert.css")
+    script(src="/js/insert.js")
+    div.insert_box
+        h1 게시판 추가
+        form.input_box(method="POST")
+            input(type="text" placeholder = "제목" name= "n_title" ) 
+            input.add(type="button" value= "추가")
+

@@ -1,0 +1,10 @@
+extends ../layout
+
+
+block content
+    link(rel="stylesheet", href="/css/notice/setting.css")
+    h1 설정
+    div.data_box
+        ul(data-seq = `${data.n_seq}` )
+            each item in data
+                li=  `제목 ${item.n_title}`

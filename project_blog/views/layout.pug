@@ -21,7 +21,11 @@ html(lang="ko")
           p 게시판추가
           p 게시판설정
         div.list
-          p 1
+        if data
+          each item in data
+            p= `${item.n_title}`
+        else 
+          p 게시판없음
       section.main
         block content
       
