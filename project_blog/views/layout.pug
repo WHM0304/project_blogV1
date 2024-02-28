@@ -10,18 +10,20 @@ html(lang="ko")
   body
     
     header.index 
-      h1 나만의 블로그
       ul.nav
         li 로그인
         li 회원가입
         li 내정보
+      h1#home 나만의 블로그
     div.container 
       section.aside
         div.nav
           p 게시판추가
           p 게시판설정
         div.list
-      block content
+          p 1
+      section.main
+        block content
       
 
     
