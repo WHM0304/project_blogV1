@@ -24,4 +24,12 @@ router.get("/setting", async (req, res) => {
   return res.render("notice/setting", { data });
 });
 
+router.get("/:seq/update", async (req, res) => {
+  const data = await NOTICE.findAll();
+  const n_seq = req.params.seq;
+  const UPDATE = await NOTICE.findByPk(n_seq);
+  // return res.json(data);
+  return res.render("notice/update", { data, n_seq, UPDATE });
+});
+
 export default router;

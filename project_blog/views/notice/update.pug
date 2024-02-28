@@ -1,0 +1,9 @@
+extends ../layout
+
+block content
+    link(rel="stylesheet", href="/css/notice/insert.css")
+    h1 수정
+    div.data_box
+        form.input_box(method="POST")
+            input(type="text" placeholder = "제목" name= "n_title" value=`${UPDATE.n_title}` ) 
+            input.add(type="submit" value= "추가")
