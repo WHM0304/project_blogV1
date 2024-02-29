@@ -27,7 +27,19 @@ document.addEventListener("DOMContentLoaded", () => {
       document.location.href = "/notice/setting";
     }
   });
-  home.addEventListener("click", () => {
+  home?.addEventListener("click", () => {
     document.location.href = "/";
+  });
+});
+
+document.addEventListener("DOMContentLoaded", () => {
+  const List = document.querySelector("div.list");
+  List?.addEventListener("click", (e) => {
+    const target = e.target;
+
+    if (target.tagName === "P") {
+      const seq = target.dataset.n_seq;
+      return (document.location.href = `/post/${seq}/list`);
+    }
   });
 });

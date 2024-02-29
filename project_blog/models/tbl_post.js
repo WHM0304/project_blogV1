@@ -1,5 +1,4 @@
 import { Model } from "sequelize";
-
 export default class tbl_post extends Model {
   static init(sequelize, DataTypes) {
     return super.init(
@@ -12,7 +11,7 @@ export default class tbl_post extends Model {
         },
         p_uid: {
           type: DataTypes.STRING(25),
-          allowNull: false,
+          allowNull: true,
         },
         p_nseq: {
           type: DataTypes.BIGINT,
@@ -33,6 +32,10 @@ export default class tbl_post extends Model {
         p_title: {
           type: DataTypes.STRING(30),
           allowNull: false,
+        },
+        p_content: {
+          type: DataTypes.STRING(255),
+          allowNull: true,
         },
         p_image: {
           type: DataTypes.STRING(255),

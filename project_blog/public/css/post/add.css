@@ -1,0 +1,9 @@
+.add_form {
+  width: 80%;
+  margin: 10px auto;
+  display: flex;
+  flex-direction: column;
+  input {
+    margin-top: 10px;
+  }
+}

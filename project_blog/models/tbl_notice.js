@@ -10,12 +10,12 @@ export default class tbl_notice extends Model {
           allowNull: false,
           primaryKey: true,
         },
-        n_uid: {
-          type: DataTypes.STRING(25),
-          allowNull: false,
-        },
         n_title: {
           type: DataTypes.STRING(20),
+          allowNull: false,
+        },
+        n_div: {
+          type: DataTypes.STRING(2),
           allowNull: false,
         },
       },

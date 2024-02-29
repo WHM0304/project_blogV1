@@ -1,0 +1,19 @@
+extends ../layout
+
+block content
+    link(rel="stylesheet", href="/css/post/list.css")
+    script(src="/js/post/list.js")
+    div.box
+        header 
+            h1=`${notice.n_title} 게시판`
+        aside.search
+            input(type="text" placeholder="검색어를입력해주세요")
+            input(type="button" value="검색")
+            input#add(type="button" value="글작성하기" data-n_seq=`${notice.n_seq}`) 
+          
+        section.list_section
+            if post_data
+                ul
+                    li 리스트
+            
+                
