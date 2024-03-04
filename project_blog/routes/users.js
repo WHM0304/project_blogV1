@@ -30,8 +30,9 @@ router.post("/join", async (req, res) => {
   return res.redirect("/users/login");
 });
 
-router.get("/:userId/check", async (req, res) => {
-  const userid = req.params.userId;
+router.get("/:userid/check", async (req, res) => {
+  const userid = req.params.userid;
+  // return res.json(userid);
   const row = await USER.findByPk(userid);
   if (row) {
     return res.json({ MESSAGE: "FOUND" });
@@ -68,6 +69,8 @@ router.post("/login", async (req, res) => {
     if (result.u_pw === hashPassword) {
       req.session.user = result;
       return res.redirect("/");
+      // req.session.user = result;
+      // return res.json(result.u_id);
     } else {
       return res.redirect(
         `/users/login?fail=${LOGIN_MASSAGE.PASS_WRONG}`

@@ -5,14 +5,21 @@ const NOTICE = DB.models.tbl_notice;
 const POST = DB.models.tbl_post;
 
 router.get("/insert", async (req, res) => {
+  const user = req.session?.user;
   const data = await NOTICE.findAll();
-  return res.render("notice/insert", { data });
+  if (user) {
+    return res.render("notice/insert", { data });
+  } else {
+    const message = "로그인이 필요합니다.";
+    return res.redirect(`/users/login?fail=${message}`);
+  }
 });
 router.post("/insert", async (req, res) => {
   const data = req.body;
   // return res.json(data);
   try {
-    await NOTICE.create(data);
+    const user = req.session?.user.u_id;
+    req.body.n_uid = await NOTICE.create(data);
   } catch (error) {
     return res.json(error);
   }
@@ -20,8 +27,14 @@ router.post("/insert", async (req, res) => {
 });
 
 router.get("/setting", async (req, res) => {
+  const user = req.session?.user;
   const data = await NOTICE.findAll();
-  return res.render("notice/setting", { data });
+  if (user) {
+    return res.render("notice/setting", { data });
+  } else {
+    const message = "로그인이 필요합니다.";
+    return res.redirect(`/users/login?fail=${message}`);
+  }
 });
 
 router.get("/:seq/update", async (req, res) => {

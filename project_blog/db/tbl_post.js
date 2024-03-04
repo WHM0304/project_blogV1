@@ -1,4 +1,5 @@
 import { Model } from "sequelize";
+
 export default class tbl_post extends Model {
   static init(sequelize, DataTypes) {
     return super.init(
@@ -12,6 +13,10 @@ export default class tbl_post extends Model {
         p_uid: {
           type: DataTypes.STRING(25),
           allowNull: true,
+          references: {
+            model: "tbl_user",
+            key: "u_id",
+          },
         },
         p_nseq: {
           type: DataTypes.BIGINT,
@@ -54,9 +59,14 @@ export default class tbl_post extends Model {
             fields: [{ name: "p_seq" }],
           },
           {
-            name: "FK_BSEQ",
+            name: "FK_P_NSEQ",
             using: "BTREE",
             fields: [{ name: "p_nseq" }],
+          },
+          {
+            name: "FK_P_UID",
+            using: "BTREE",
+            fields: [{ name: "p_uid" }],
           },
         ],
       }

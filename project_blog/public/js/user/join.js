@@ -4,7 +4,7 @@ const join_click_event = async () => {
   const password = join_form.querySelector("#password");
   const re_password = join_form.querySelector("#re_password");
   const nickname = join_form.querySelector("#nick");
-  if ((userid.value = "")) {
+  if (userid.value === "") {
     alert("사용자이름 입력해주세요");
     userid.select();
     return false;
@@ -38,8 +38,8 @@ const join_click_event = async () => {
     nickname.select();
     return false;
   }
-  // join_form.submit();
-  alert("ㅇㅇ?");
+  join_form.submit();
+  // alert("ㅇㅇ?");
 };
 
 document.addEventListener("DOMContentLoaded", () => {

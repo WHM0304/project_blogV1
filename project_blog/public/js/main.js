@@ -12,6 +12,7 @@ document.addEventListener("DOMContentLoaded", () => {
   };
   top_nav?.addEventListener("click", (e) => {
     const name = e.target.innerHTML;
+
     if (name === 네비.로그인) {
       document.location.href = "/users/login";
     } else if (name === 네비.회원가입) {
@@ -24,7 +25,10 @@ document.addEventListener("DOMContentLoaded", () => {
   });
   div_nav?.addEventListener("click", (e) => {
     const target = e.target.innerHTML;
+    const data = div_nav.dataset.user;
+
     if (target === 네비.게시판추가) {
+      // alert(data);
       document.location.href = "/notice/insert";
     } else if (target === 네비.게시판설정) {
       document.location.href = "/notice/setting";
@@ -35,7 +39,7 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 
-document.addEventListener("DOMContentLoaded", () => {
+document?.addEventListener("DOMContentLoaded", () => {
   const List = document.querySelector("div.list");
   List?.addEventListener("click", (e) => {
     const target = e.target;

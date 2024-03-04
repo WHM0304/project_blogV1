@@ -11,6 +11,10 @@ export default function initModels(sequelize) {
 
   tbl_post.belongsTo(tbl_notice, { as: "p_nseq_tbl_notice", foreignKey: "p_nseq"});
   tbl_notice.hasMany(tbl_post, { as: "tbl_posts", foreignKey: "p_nseq"});
+  tbl_notice.belongsTo(tbl_user, { as: "n_u", foreignKey: "n_uid"});
+  tbl_user.hasMany(tbl_notice, { as: "tbl_notices", foreignKey: "n_uid"});
+  tbl_post.belongsTo(tbl_user, { as: "p_u", foreignKey: "p_uid"});
+  tbl_user.hasMany(tbl_post, { as: "tbl_posts", foreignKey: "p_uid"});
 
   return {
     tbl_notice,
