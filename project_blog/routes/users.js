@@ -20,7 +20,6 @@ router.get("/join", async (req, res) => {
 });
 
 router.post("/join", async (req, res) => {
-  const rows = await USER.findAll();
   const password = req.body.u_pw;
   const hashAlgorithm = await crypto.createHash("sha512");
   const hashing = await hashAlgorithm.update(password);
@@ -31,8 +30,8 @@ router.post("/join", async (req, res) => {
   return res.redirect("/users/login");
 });
 
-router.get("/:userid/check", async (req, res) => {
-  const userid = req.params.userid;
+router.get("/:userId/check", async (req, res) => {
+  const userid = req.params.userId;
   const row = await USER.findByPk(userid);
   if (row) {
     return res.json({ MESSAGE: "FOUND" });

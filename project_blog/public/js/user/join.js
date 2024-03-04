@@ -1,19 +1,19 @@
 const join_click_event = async () => {
   const join_form = document.querySelector("form.join");
-  const userId = join_form.querySelector("#userid");
+  const userid = join_form.querySelector("#userid");
   const password = join_form.querySelector("#password");
   const re_password = join_form.querySelector("#re_password");
   const nickname = join_form.querySelector("#nick");
-  if ((userId.value = "")) {
+  if ((userid.value = "")) {
     alert("사용자이름 입력해주세요");
-    userId.select();
+    userid.select();
     return false;
   } else {
-    const response = await fetch(`/users/${userId.value}/check`);
+    const response = await fetch(`/users/${userid.value}/check`);
     const json = await response.json();
     if (json.MESSAGE === "FOUND") {
       alert("이미 등록된 ID가 있습니다.");
-      userId.select();
+      userid.select();
       return false;
     }
   }
@@ -38,7 +38,8 @@ const join_click_event = async () => {
     nickname.select();
     return false;
   }
-  join_form.submit();
+  // join_form.submit();
+  alert("ㅇㅇ?");
 };
 
 document.addEventListener("DOMContentLoaded", () => {
