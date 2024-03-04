@@ -2,7 +2,7 @@ const join_click_event = async () => {
   const join_form = document.querySelector("form.join");
   const userId = join_form.querySelector("#userid");
   const password = join_form.querySelector("#password");
-  const re_password = join_form.querySelector("re_password");
+  const re_password = join_form.querySelector("#re_password");
   const nickname = join_form.querySelector("#nick");
   if ((userId.value = "")) {
     alert("사용자이름 입력해주세요");
@@ -31,6 +31,11 @@ const join_click_event = async () => {
   if (password.value !== re_password.value) {
     alert("비밀번호와 비밀번호 확인의 입력값이 다릅니다.");
     password.select();
+    return false;
+  }
+  if (nickname === "") {
+    alert("닉네임을 입력해주세요");
+    nickname.select();
     return false;
   }
   join_form.submit();
