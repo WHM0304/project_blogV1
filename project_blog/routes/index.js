@@ -6,8 +6,13 @@ const router = express.Router();
 
 /* GET home page. */
 router.get("/", async (req, res, next) => {
-  const data = await NOTICE.findAll();
-  return res.render("index", { data });
+  const user = req.session?.user;
+  if (user) {
+    const data = await NOTICE.findAll();
+    return res.render("index", { data });
+  } else {
+    return res.render("index");
+  }
 });
 
 export default router;

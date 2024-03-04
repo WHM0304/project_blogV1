@@ -3,6 +3,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const div_nav = document.querySelector("div.nav");
   const home = document.querySelector("#home");
   const 네비 = {
+    로그아웃: "로그아웃",
     로그인: "로그인",
     회원가입: "회원가입",
     내정보: "내정보",
@@ -12,11 +13,13 @@ document.addEventListener("DOMContentLoaded", () => {
   top_nav?.addEventListener("click", (e) => {
     const name = e.target.innerHTML;
     if (name === 네비.로그인) {
-      document.location.href = "/";
+      document.location.href = "/users/login";
     } else if (name === 네비.회원가입) {
-      document.location.href = "/";
+      document.location.href = "/users/join";
     } else if (name === 네비.내정보) {
       document.location.href = "/";
+    } else if (name === 네비.로그아웃) {
+      document.location.href = "/users/logout";
     }
   });
   div_nav?.addEventListener("click", (e) => {
