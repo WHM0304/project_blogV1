@@ -87,4 +87,13 @@ router.get("/logout", (req, res) => {
   return res.redirect("/");
 });
 
+router.get("/mypage", (req, res) => {
+  return res.render("users/mypage");
+});
+
+router.get("/search", async (req, res) => {
+  const user = req.session.user;
+  return res.render("users/search", { user });
+});
+
 export default router;

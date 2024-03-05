@@ -9,6 +9,7 @@ document.addEventListener("DOMContentLoaded", () => {
     내정보: "내정보",
     게시판추가: "게시판추가",
     게시판설정: "게시판설정",
+    찾아보기: "찾아보기",
   };
   top_nav?.addEventListener("click", (e) => {
     const name = e.target.innerHTML;
@@ -18,9 +19,11 @@ document.addEventListener("DOMContentLoaded", () => {
     } else if (name === 네비.회원가입) {
       document.location.href = "/users/join";
     } else if (name === 네비.내정보) {
-      document.location.href = "/";
+      document.location.href = "/users/mypage";
     } else if (name === 네비.로그아웃) {
       document.location.href = "/users/logout";
+    } else if (name === 네비.찾아보기) {
+      document.location.href = "/users/search";
     }
   });
   div_nav?.addEventListener("click", (e) => {

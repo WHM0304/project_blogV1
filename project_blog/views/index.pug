@@ -3,4 +3,8 @@ extends layout
 block content
   link(rel="stylesheet", href="/css/index.css")
 
-  div.body 지금은 바탕화면
+  div.body 
+    if user
+      h1= `${user.u_nick} 님의 블로그`
+    else 
+      h1 블로그

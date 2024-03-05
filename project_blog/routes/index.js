@@ -6,12 +6,12 @@ const router = express.Router();
 
 /* GET home page. */
 router.get("/", async (req, res, next) => {
-  const user = req.session?.user;
-  // const id = user.id;
-  // return res.json({ id });
-  if (user) {
-    const data = await NOTICE.findAll();
-    return res.render("index", { data });
+  const user = req.session.user;
+  const u_id = req.session.user?.u_id;
+  // return res.json(user);
+  if (u_id) {
+    const data = await NOTICE.findAll({ where: { n_uid: u_id } });
+    return res.render("index", { data, user, u_id });
   } else {
     return res.render("index");
   }

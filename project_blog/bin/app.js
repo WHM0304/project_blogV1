@@ -61,7 +61,7 @@ app.use(
     secret: "whm0304@naver.com",
     cookie: {
       httpOnly: true,
-      maxAge: 1000 * 60 * 20,
+      maxAge: 1000 * 60 * 60,
     },
   })
 );

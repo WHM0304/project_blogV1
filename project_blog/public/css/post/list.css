@@ -11,40 +11,42 @@ div.box {
 }
 
 .search {
-  width: 90%;
-  display: flex;
-  gap: 5px;
-  margin: 10px auto;
-  justify-content: end;
+  form {
+    width: 90%;
+    display: flex;
+    gap: 5px;
+    margin: 10px auto;
+    justify-content: end;
 
-  #add {
-    background-color: palevioletred;
-    width: 10%;
-    color: darkred;
-    padding: 0.5rem;
-    &:hover {
-      cursor: pointer;
-    }
-  }
-  input {
-    padding: 0.5rem;
-    border: none;
-    outline: none;
-    border-radius: 10px;
-
-    &:nth-of-type(1) {
-      border-bottom: 1px solid #ddd;
-      border-radius: 0;
-      &:focus {
-        border-bottom: 1px solid skyblue;
-      }
-    }
-    &:nth-of-type(2) {
+    #add {
+      background-color: palevioletred;
+      width: 10%;
+      color: darkred;
       padding: 0.5rem;
-      background-color: skyblue;
-      color: white;
       &:hover {
         cursor: pointer;
+      }
+    }
+    input {
+      padding: 0.5rem;
+      border: none;
+      outline: none;
+      border-radius: 10px;
+
+      &:nth-of-type(1) {
+        border-bottom: 1px solid #ddd;
+        border-radius: 0;
+        &:focus {
+          border-bottom: 1px solid skyblue;
+        }
+      }
+      &:nth-of-type(2) {
+        padding: 0.5rem;
+        background-color: skyblue;
+        color: white;
+        &:hover {
+          cursor: pointer;
+        }
       }
     }
   }
@@ -56,4 +58,15 @@ div.box {
   display: flex;
   flex-direction: column;
   border-top: 3px solid black;
+  ul {
+    margin-top: 10px;
+    display: flex;
+    border: 1px solid #ddd;
+    li {
+      margin: 10px 10px 0 0;
+    }
+    strong {
+      margin: 10px 0 0 0;
+    }
+  }
 }

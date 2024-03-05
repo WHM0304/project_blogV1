@@ -1,0 +1,10 @@
+extends ../layout
+
+block content
+    header
+        span=`${post_data.p_date}` 
+        span=`${post_data.p_time}`
+        strong=`유저 닉네임  ${post_data.p_uid}` 
+        h1=`${post_data.p_title}`
+    section
+        div= `${post_data.p_content}`
