@@ -110,6 +110,22 @@ div.list {
     border-bottom: 1px solid black;
     margin: 1rem auto;
     padding: 10px;
+    font-size: large;
     color: rgb(200, 73, 73);
   }
+}
+
+div.list {
+  p {
+    text-align: center;
+  }
+}
+div.nav {
+  display: flex;
+  p {
+    flex: 1;
+    text-align: center;
+  }
+  width: 100%;
+  margin: 10px auto;
 }

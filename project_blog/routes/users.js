@@ -1,6 +1,8 @@
 import express from "express";
 import DB from "../models/index.js";
 const USER = DB.models.tbl_user;
+const NOTICE = DB.models.tbl_notice;
+const POST = DB.models.tbl_post;
 const router = express.Router();
 
 let crypto;
@@ -11,9 +13,6 @@ try {
 }
 
 /* GET users listing. */
-router.get("/", async (req, res, next) => {
-  res.send("respond with a resource");
-});
 
 router.get("/join", async (req, res) => {
   res.render("users/join");
@@ -87,13 +86,43 @@ router.get("/logout", (req, res) => {
   return res.redirect("/");
 });
 
-router.get("/mypage", (req, res) => {
-  return res.render("users/mypage");
+router.get("/mypage", async (req, res) => {
+  const user = req.session.user;
+  if (user) {
+    const u_id = req.session.user.u_id;
+    const data = await NOTICE.findAll({ where: { n_uid: u_id } });
+    return res.render("users/mypage", { user, data });
+  } else {
+    return res.redirect("/users/login");
+  }
 });
 
 router.get("/search", async (req, res) => {
+  const u_find = req.query.u_find || "";
+  const init = await USER.findAll();
+  const rows = await USER.findByPk(u_find, {
+    include: {
+      model: NOTICE,
+      as: "u_n",
+    },
+  });
+
   const user = req.session.user;
-  return res.render("users/search", { user });
+  const u_id = await USER.findAll();
+
+  // return res.json(u_id[0].u_id);
+  if (u_find === u_id) {
+    return res.render("users/search", {
+      // user,
+      // rows,
+      u_find,
+      // init,
+      // u_n,
+    });
+  } else {
+  }
+  return res.render("users/search", { u_find });
+  // return res.json(u_n);
 });
 
 export default router;

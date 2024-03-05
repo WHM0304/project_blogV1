@@ -5,9 +5,10 @@ block content
     script(src="/js/post/add.js")
     h1 게시글쓰기
     form.add_form(method="POST" enctype= "multipart/form-data") 
-        input(type="text" name="p_title")
-        textarea( cols="30", rows="10" name="p_content")
-        img.img_add(src="images/noImage.svg" , width = "200px" )
+        input(type="text" name="p_title" placeholder="제목을입력해주세요")
+        div.content
+            textarea( cols="30", rows="10" name="p_content" placeholder="내용을입력해주세요")
+            img.img_add(src="/images/add.png" , width = "150px" )
         input(type="file" name= "p_image" accept="image/*" id= "p_image")
-        input.btn(type="button" value="추가")
+        input.btn(type="button" value="추가하기")
         input.btn(type="button" value="돌아가기" data-n_seq=`${n_seq}`)

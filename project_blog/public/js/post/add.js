@@ -17,7 +17,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   form?.addEventListener("click", (e) => {
     const target = e.target;
-    if (target.value === "추가") {
+    if (target.value === "추가하기") {
       form.submit();
     } else if (target.value === "돌아가기") {
       const n_seq = target.dataset.n_seq;

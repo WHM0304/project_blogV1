@@ -61,12 +61,15 @@ div.box {
   ul {
     margin-top: 10px;
     display: flex;
+    gap: 10px;
     border: 1px solid #ddd;
+    padding: 10px;
+    justify-content: space-between;
     li {
       margin: 10px 10px 0 0;
     }
     strong {
-      margin: 10px 0 0 0;
+      font-size: 1rem;
     }
   }
 }

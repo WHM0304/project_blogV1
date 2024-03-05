@@ -7,11 +7,11 @@ const router = express.Router();
 /* GET home page. */
 router.get("/", async (req, res, next) => {
   const user = req.session.user;
-  const u_id = req.session.user?.u_id;
   // return res.json(user);
-  if (u_id) {
+  if (user) {
+    const u_id = req.session.user?.u_id;
     const data = await NOTICE.findAll({ where: { n_uid: u_id } });
-    return res.render("index", { data, user, u_id });
+    return res.render("index", { data, user });
   } else {
     return res.render("index");
   }

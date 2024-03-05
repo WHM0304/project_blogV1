@@ -16,7 +16,7 @@ const storageOption = {
     callback(null, upLoadPath);
   },
   filename: (req, file, callback) => {
-    const upFileName = `${uuid()}-${file.originalname}}`;
+    const upFileName = `${uuid()}-${file.originalname}`;
     callback(null, upFileName);
   },
 };

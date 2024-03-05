@@ -1,0 +1,26 @@
+.header {
+  width: 40%;
+  margin: 1rem auto;
+  display: flex;
+  flex-direction: column;
+  margin-top: 5%;
+  h1 {
+    text-align: left;
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
+  }
+}
+
+div.info {
+  display: flex;
+  gap: 10px;
+  justify-content: end;
+}
+
+section.body {
+  width: 40%;
+  margin: 3% auto;
+  border: 1px solid #ddd;
+}
+div.img_box {
+  display: flex;
+}
