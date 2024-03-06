@@ -99,30 +99,27 @@ router.get("/mypage", async (req, res) => {
 
 router.get("/search", async (req, res) => {
   const u_find = req.query.u_find || "";
-  const init = await USER.findAll();
+  const data = await USER.findAll();
   const rows = await USER.findByPk(u_find, {
     include: {
       model: NOTICE,
       as: "u_n",
     },
   });
+  const find = await USER.findAll({
+    where: { u_id: u_find },
+  });
 
   const user = req.session.user;
-  const u_id = await USER.findAll();
 
-  // return res.json(u_id[0].u_id);
-  if (u_find === u_id) {
-    return res.render("users/search", {
-      // user,
-      // rows,
-      u_find,
-      // init,
-      // u_n,
-    });
-  } else {
-  }
-  return res.render("users/search", { u_find });
-  // return res.json(u_n);
+  return res.render("users/search", {
+    u_find,
+    user,
+    rows,
+    find,
+    data,
+  });
+  // return res.json(find);
 });
 
 export default router;

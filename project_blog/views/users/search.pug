@@ -3,19 +3,13 @@ extends ../layout2
 block content
     h1 찾아보기
     form
-        input(type="text" name="u_find" value=`${u_find}`)
+        input(type="text" name="u_find" value=`${u_find}` placeholder="아이디를입력해주세요")
     table 
         tr
             th 계정
             th 닉네임
-            th 게시판
-        if u_find
-            tr
-                //- td= rows.u_nick
-                //- td=rows.u_id
-                //- td= `${rows.u_n[0].n_title}`
-        //- else
-        //-     each item in init
-        //-         tr
-        //-             td=item.u_id
-        //-             td=item.u_nick
+        if u_find === ""
+            each item in data
+                tr
+                    td= item.u_id
+                    td= item.u_nick

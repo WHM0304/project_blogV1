@@ -23,7 +23,7 @@ const join_click_event = async () => {
     password.select();
     return false;
   }
-  if (re_password === "") {
+  if (re_password.value === "") {
     alert("비밀번호 확인을 입력해주세요.");
     re_password.select();
     return false;
@@ -33,7 +33,7 @@ const join_click_event = async () => {
     password.select();
     return false;
   }
-  if (nickname === "") {
+  if (nickname.value === "") {
     alert("닉네임을 입력해주세요");
     nickname.select();
     return false;

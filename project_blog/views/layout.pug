@@ -28,18 +28,21 @@ html(lang="ko")
         div.list
           div.announce 메모
           if user
-            each item in data
-              if item.n_div ==="1"
-                p(data-n_seq=item.n_seq)= `${item.n_title}`
+            if data
+              each item in data
+                if item.n_div ==="1"
+                  p(data-n_seq=item.n_seq)= `${item.n_title}`
           div.free 자유게시판
           if user
-            each item in data
-              if item.n_div === "2"
-                p(data-n_seq=item.n_seq)= `${item.n_title}`
+            if data
+              each item in data
+                if item.n_div === "2"
+                  p(data-n_seq=item.n_seq)= `${item.n_title}`
           div.all 전체게시판
           if user
-            each item in data
-              p(data-n_seq=item.n_seq)= `${item.n_title}`
+            if data
+              each item in data
+                p(data-n_seq=item.n_seq)= `${item.n_title}`
       section.main
         block content
       

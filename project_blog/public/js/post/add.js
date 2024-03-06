@@ -17,11 +17,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
   form?.addEventListener("click", (e) => {
     const target = e.target;
+    const n_seq = document.querySelector(".back").dataset.n_seq;
     if (target.value === "추가하기") {
       form.submit();
     } else if (target.value === "돌아가기") {
-      const n_seq = target.dataset.n_seq;
       document.location.href = `/post/${n_seq}/list`;
+    } else if (target.value === "수정하기") {
+      form.submit();
     }
   });
   img_add?.addEventListener("click", () => {

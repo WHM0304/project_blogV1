@@ -2,6 +2,8 @@ extends ../layout
 
 block content
     h1  내정보
-    ul
-        li=`${user.u_id}`
-        li=`${user.u_nick}`
+    div
+        ul
+            li=`${user.u_id}`
+                input(type="text")
+            li=`${user.u_nick}`
