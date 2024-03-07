@@ -73,3 +73,16 @@ div.box {
     }
   }
 }
+#id {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  strong {
+    border: 1px solid #ddd;
+  }
+  li {
+  }
+}
+#mid {
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.4);
+}

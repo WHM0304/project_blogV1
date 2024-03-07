@@ -93,7 +93,8 @@ router.get("/mypage", async (req, res) => {
     const data = await NOTICE.findAll({ where: { n_uid: u_id } });
     return res.render("users/mypage", { user, data });
   } else {
-    return res.redirect("/users/login");
+    const message = "로그인이 필요합니다.";
+    return res.redirect(`/users/login?fail=${message}`);
   }
 });
 
@@ -120,6 +121,45 @@ router.get("/search", async (req, res) => {
     data,
   });
   // return res.json(find);
+});
+
+router.get("/:u_id/update", async (req, res) => {
+  const u_id = req.params.u_id;
+  const user = req.session.user;
+  if (user) {
+    const _u_id = req.session.user.u_id;
+    const data = await NOTICE.findAll({ where: { n_uid: u_id } });
+    const user_data = await USER.findAll({ where: { u_id: _u_id } });
+    const u_nick = user_data[0].u_nick;
+    if (u_id === _u_id) {
+      return res.render("users/update", {
+        user,
+        data,
+        _u_id,
+        u_nick,
+      });
+    } else {
+      message = "다른사용자입니다.";
+      return res.redirect(`/users/login?fail=${message}`);
+    }
+  } else {
+    return res.redirect("/");
+  }
+});
+
+router.post("/:u_id/update", async (req, res) => {
+  const u_id = req.params.u_id;
+  const user = req.session.user;
+  if (user) {
+    await USER.update(req.body, { where: { u_id: u_id } });
+    req.session.user = {
+      u_id: u_id,
+      u_nick: req.body.u_nick,
+      u_pw: req.session.user.u_pw,
+    };
+    // return res.json(req.body);
+    return res.redirect(`/users/mypage`);
+  }
 });
 
 export default router;

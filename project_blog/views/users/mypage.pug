@@ -1,9 +1,15 @@
 extends ../layout
 
 block content
+    link(rel="stylesheet", href="/css/user/mypage.css")
+    script(src="/js/user/mypage.js")
     h1  내정보
-    div
-        ul
-            li=`${user.u_id}`
-                input(type="text")
-            li=`${user.u_nick}`
+    div.con
+        div.info
+            ul
+                li 아이디
+                label=`${user.u_id}`
+                li 닉네임
+                label=`${user.u_nick}`
+        div.button
+            input#up(type="button" value="수정" data-user = user.u_id) 
