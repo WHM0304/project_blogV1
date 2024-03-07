@@ -1,15 +1,14 @@
 extends ../layout2
 
 block content
-    h1 찾아보기
-    form
-        input(type="text" name="u_find" value=`${u_find}` placeholder="아이디를입력해주세요")
-    table 
+    link(rel="stylesheet", href="/css/user/search.css")
+    script(src="/js/user/search.js")
+    h1.search 다른유저 게시판 찾아보기
+    table#table 
         tr
-            th 계정
             th 닉네임
-        if u_find === ""
-            each item in data
-                tr
-                    td= item.u_id
-                    td= item.u_nick
+            th 게시판
+        each item in data
+            tr(data-n_seq = item.n_seq)
+                td=`${item.n_u.u_nick}`
+                td=`${item.n_title}`

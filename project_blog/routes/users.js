@@ -98,31 +98,6 @@ router.get("/mypage", async (req, res) => {
   }
 });
 
-router.get("/search", async (req, res) => {
-  const u_find = req.query.u_find || "";
-  const data = await USER.findAll();
-  const rows = await USER.findByPk(u_find, {
-    include: {
-      model: NOTICE,
-      as: "u_n",
-    },
-  });
-  const find = await USER.findAll({
-    where: { u_id: u_find },
-  });
-
-  const user = req.session.user;
-
-  return res.render("users/search", {
-    u_find,
-    user,
-    rows,
-    find,
-    data,
-  });
-  // return res.json(find);
-});
-
 router.get("/:u_id/update", async (req, res) => {
   const u_id = req.params.u_id;
   const user = req.session.user;
@@ -160,6 +135,20 @@ router.post("/:u_id/update", async (req, res) => {
     // return res.json(req.body);
     return res.redirect(`/users/mypage`);
   }
+});
+
+router.get("/search", async (req, res) => {
+  const data = await NOTICE.findAll({
+    include: { model: USER, as: "n_u" },
+  });
+
+  const user = req.session.user;
+  // return res.json(data);
+  return res.render("users/search", {
+    user,
+    data,
+  });
+  // return res.json(find);
 });
 
 export default router;
