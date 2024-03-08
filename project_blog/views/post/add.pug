@@ -7,14 +7,8 @@ block content
     form.add_form(method="POST" enctype= "multipart/form-data") 
         input(type="text" name="p_title" placeholder="제목을입력해주세요" value= `${update ? update[0].p_title : ""}`)
         div.content
-            if update[0].p_content
-                textarea(cols="30" rows="10" name="p_content", placeholder="내용을입력해주세요" ) #{update[0].p_content}
-            else
-                textarea(cols="30" rows="10" name="p_content", placeholder="내용을입력해주세요" )
-            if update[0].p_image
-                img.img_add(src=`${`/upload_file/${update[0].p_image}`}`  , width = "150px" )
-            else
-                img.img_add(src= "/images/add.png" , width = "150px")
+            textarea(cols="30" rows="10" name="p_content", placeholder="내용을입력해주세요" ) #{update ? update[0].p_content :""}
+            img.img_add(src= `${image !=null  ? `/upload_file/${image}` : `/images/add.png`}`  , width = "150px" )
         input(type="file" name= "p_image" accept="image/*" id= "p_image")
         input.btn(type="button" value=`${update ? "수정하기" : "추가하기"}`)
         input.btn.back(type="button" value="돌아가기" data-n_seq=`${n_seq}`)

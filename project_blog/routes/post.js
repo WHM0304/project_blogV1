@@ -124,7 +124,9 @@ router.get("/:n_seq/update/:p_seq", async (req, res) => {
       const data = await NOTICE.findAll({ where: { n_uid: u_id } });
       const update = await POST.findAll({ where: { p_seq } });
       // const update = _update[0];
-      return res.render("post/add", { data, update, n_seq });
+      const image = update[0].p_image;
+      // return res.json(image);
+      return res.render("post/add", { data, update, n_seq, image });
       // return res.json(update[0].p_content);
     }
   } else {

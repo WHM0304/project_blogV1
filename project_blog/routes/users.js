@@ -143,11 +143,16 @@ router.get("/search", async (req, res) => {
   });
 
   const user = req.session.user;
+  if (user) {
+    return res.render("users/search", {
+      user,
+      data,
+    });
+  } else {
+    const message = "로그인이 필요합니다.";
+    return res.redirect(`/users/login?fail=${message}`);
+  }
   // return res.json(data);
-  return res.render("users/search", {
-    user,
-    data,
-  });
   // return res.json(find);
 });
 

@@ -10,7 +10,7 @@ export default function initModels(sequelize) {
   const tbl_user = _tbl_user.init(sequelize, DataTypes);
 
   tbl_post.belongsTo(tbl_notice, {
-    as: "p_nseq_tbl_notice",
+    as: "p_n",
     foreignKey: "p_nseq",
   });
   tbl_notice.hasMany(tbl_post, {
