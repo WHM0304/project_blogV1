@@ -2,9 +2,12 @@ extends layout
 
 block content
   link(rel="stylesheet", href="/css/index.css")
-
+  script(src="/js/index.js")
   div.body 
     if user
       h1= `${user.u_nick} 님의 블로그`
     else 
       h1 블로그
+    header.time 
+      input#time(type="text" readonly=true )
+      input#date(type="text" readonly=true )

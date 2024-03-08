@@ -9,7 +9,7 @@ document.addEventListener("DOMContentLoaded", () => {
     내정보: "내정보",
     게시판추가: "게시판추가",
     게시판설정: "게시판설정",
-    찾아보기: "찾아보기",
+    찾아보기: "게시판 찾기",
   };
   top_nav?.addEventListener("click", (e) => {
     const name = e.target.innerHTML;
