@@ -1,0 +1,31 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+model tbl_notice{
+  n_seq Int @id @default(autoincrement())
+  n_uid String?
+  n_title String
+  n_div String
+}
+
+model tbl_post{
+  p_seq Int @id @default(autoincrement())
+  p_uid String?
+  p_nseq Int
+  p_date String?
+  p_time String?
+  p_title String
+  p_content String
+  p_image String?
+}
