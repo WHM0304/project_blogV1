@@ -1,15 +1,15 @@
 "use client";
-import { postSelectAll } from "@/app/api/post.js";
+import { postSelectAll, postSelect } from "@/app/api/post.js";
 import Link from "next/link";
-import { useState } from "react";
-
 export default async ({ params }) => {
   const p_nseq = params.n_seq;
-  const postData = await postSelectAll({
-    where: { p_nseq },
-  });
-
-  const postList = postData.map((item) => {
+  const postData = await postSelectAll();
+  console.log(postData);
+  // const router = useRouter();
+  // const onClickHandler = (p_nseq) => {
+  //   router.push(`/blog/${p_nseq}/post/detail`);
+  // };
+  const postList = postData?.map((item) => {
     return (
       <li>
         <Link

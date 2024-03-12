@@ -17,7 +17,7 @@ CREATE TABLE `tbl_post` (
     `p_time` VARCHAR(191) NULL,
     `p_title` VARCHAR(191) NOT NULL,
     `p_content` VARCHAR(191) NOT NULL,
-    `p_image` VARCHAR(191) NOT NULL,
+    `p_image` VARCHAR(191) NULL,
 
     PRIMARY KEY (`p_seq`)
 ) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
